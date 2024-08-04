@@ -19,7 +19,8 @@ export default function TopSearchBar({selectedCategory1,setSelectedCategory1}){
         {name:'Dum Biryani'},
         {name:'Story of purijaganth'},
         {name:'Mahabharat'},
-        {name:'React Js'}
+        {name:'React Js'},
+        {name:'Mern Stack'}
     ]
 
     return(

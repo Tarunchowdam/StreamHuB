@@ -17,10 +17,10 @@ import TagFacesIcon from '@mui/icons-material/TagFaces';
 
 export const categories = [
   { appearance: "Home", name: 'New', icon: <HomeIcon /> },
-  { appearance: "StreamHuBes", name: 'Trending', icon: <FireIcon />, },
+  { appearance: "Trending India", name: 'Trending', icon: <FireIcon />, },
   { appearance: "Coding", name: 'Coding', icon: <CodeIcon />, },
   { appearance: "React JS", name: 'ReactJS', icon: <CodeIcon />, },
-  { appearance: "BiggBoss", name: 'BigBoss Telugu', icon: <VisibilityIcon />, },
+  { appearance: "MelodySongs", name: 'MelodySongs', icon: <VisibilityIcon />, },
   { appearance: "Music", name: 'india songs', icon: <MusicNoteIcon /> },
   { appearance: "Education", name: 'Education', icon: <SchoolIcon />, },
   { appearance: "Podcast", name: 'Podcast', icon: <GraphicEqIcon />, },
