@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a8979008.css",
+    "main.js": "/static/js/main.fac28974.js",
+    "static/media/main.jpg": "/static/media/main.ec521904afaae43a6ab9.jpg",
+    "static/media/main2.jpg": "/static/media/main2.17f19bd8939c79fb4d3a.jpg",
+    "static/media/hero.jpg": "/static/media/hero.cc22f8e92e3f04261a0d.jpg",
+    "static/media/tarun.png": "/static/media/tarun.43e6e67f1ced7bb3c37a.png",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.66b7720f4a230f1b0341.woff",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.64ed46b247405068ca60.woff2",
+    "index.html": "/index.html",
+    "main.a8979008.css.map": "/static/css/main.a8979008.css.map",
+    "main.fac28974.js.map": "/static/js/main.fac28974.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a8979008.css",
+    "static/js/main.fac28974.js"
+  ]
+}
