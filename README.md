@@ -1,6 +1,3 @@
-Here’s a detailed `README.md` file format for your StramHub project:
-
-```markdown
 # StramHub
 
 StramHub is a modern React application designed to fetch YouTube videos using the Rapid API. This application leverages MongoDB for efficient data storage and utilizes Express.js along with Node.js to handle backend operations. The project also features a shimmer UI to enhance the user experience with visually appealing loading indicators.
@@ -36,24 +33,29 @@ StramHub is a modern React application designed to fetch YouTube videos using th
    ```bash
    git clone https://github.com/yourusername/stramhub.git
    ```
+
 2. **Navigate to the Project Directory:**
    ```bash
    cd stramhub
    ```
+
 3. **Install Dependencies:**
    ```bash
    npm install
    ```
+
 4. **Configure Environment Variables:**
    Create a `.env` file in the root directory and add your Rapid API key and MongoDB URI:
    ```env
    RAPIDAPI_KEY=your_rapidapi_key
    MONGODB_URI=your_mongodb_uri
    ```
+
 5. **Start the Backend Server:**
    ```bash
    npm run start:server
    ```
+
 6. **Start the Frontend Application:**
    Open a new terminal window and navigate to the frontend directory:
    ```bash
@@ -86,13 +88,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions or feedback, feel free to reach out to:
 
-- **Your Name** - [your.email@example.com](mailto:your.email@example.com)
-- **GitHub** - [https://github.com/yourusername](https://github.com/yourusername)
+- **Your Name** - [tarunchowdam184l@gmial.com](mailto:tarunchowdam184l@gmial.com)
+- **GitHub** - [https://github.com/Tarunchowdam](https://github.com/Tarunchowdam)
 ```
-
-### Instructions
-
-- Replace `yourusername`, `your_rapidapi_key`, `your_mongodb_uri`, and other placeholders with your actual information.
-- Make sure to include any additional setup steps or dependencies specific to your project if necessary.
-
-Feel free to adjust the sections according to your project's requirements!
