@@ -1,13 +1,12 @@
 # StramHub
 
-StramHub is a modern React application designed to fetch YouTube videos using the Rapid API. This application leverages MongoDB for efficient data storage and utilizes Express.js along with Node.js to handle backend operations. The project also features a shimmer UI to enhance the user experience with visually appealing loading indicators.
+StramHub is a modern React application designed to fetch YouTube videos using the Rapid API. This application leverages MongoDB for efficient data storage and utilizes Express.js along with Node.js to handle backend operations. 
 
 ## Features
 
 - **Fetch YouTube Videos:** Utilize the Rapid API to search and fetch videos from YouTube based on user queries.
 - **Data Storage:** Store fetched video data in MongoDB to allow for future reference and retrieval.
 - **Backend Operations:** Use Express.js and Node.js to handle API requests, manage video data, and perform backend operations.
-- **Shimmer UI:** Implement a shimmer effect to provide a smooth and visually appealing user experience during content loading.
 
 ## Technologies Used
 
