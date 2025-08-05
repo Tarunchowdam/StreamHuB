@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "client": "file:",
     "dotenv": "^17.2.1",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,12 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node app.js",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
