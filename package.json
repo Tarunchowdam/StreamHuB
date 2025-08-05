@@ -12,7 +12,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bcrypt": "^6.0.0",
-    "client": "file:",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "nodemon": "^3.0.1",
