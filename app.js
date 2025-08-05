@@ -1,11 +1,12 @@
 require('dotenv').config(); 
 const express = require("express");
 const cors = require("cors");
-const Collection = require("./mongo"); // Ensure consistency in the model name
+const bcrypt = require("bcrypt");
+const Collection = require("./mongo");
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -18,12 +19,12 @@ app.post('/', async (req, res) => {
     try {
         const user = await Collection.findOne({ email });
 
-        if (user) {
-            const passwordMatch = user.password === password;
-            res.json(passwordMatch ? "exist" : "wrong");
-        } else {
-            res.status(404).json("not exist");
+        if (!user) {
+            return res.status(404).json("not exist");
         }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        res.json(passwordMatch ? "exist" : "wrong");
     } catch (e) {
         res.status(500).json("error");
     }
@@ -36,16 +37,18 @@ app.post('/signup', async (req, res) => {
         const userExists = await Collection.findOne({ email });
 
         if (userExists) {
-            res.status(409).json("User already exists");
-        } else {
-            await Collection.insertMany([{ email, password }]);
-            res.status(201).json("User registered");
+            return res.status(409).json("User already exists");
         }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await Collection.insertMany([{ email, password: hashedPassword }]);
+        res.status(201).json("User registered");
     } catch (e) {
         res.status(500).json("error");
     }
 });
 
-app.listen(8000, () => {
-    console.log("Server running on port 8000");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
