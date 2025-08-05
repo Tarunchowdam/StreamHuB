@@ -1,67 +1,51 @@
-
 require('dotenv').config(); 
-const express = require("express")
-const cors = require("cors")
-const collection = require("./mongo");
+const express = require("express");
+const cors = require("cors");
+const Collection = require("./mongo"); // Ensure consistency in the model name
 
-const app = express()
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(cors())
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('API is working');
+});
 
-app.get('/',cors(),(req,res)=>{
-
-})
-
-app.post('/',async(req,res)=>{
-
-    const{email,password} = req.body
+app.post('/', async (req, res) => {
+    const { email, password } = req.body;
 
     try {
-        const check = await collection.findOne({email:email})
+        const user = await Collection.findOne({ email });
 
-        if(check){
-            const pcheck = await collection.findOne({email:email,password:password})
-            if(pcheck){
-                res.json("exist")
-            }
-            else{
-                res.json("wrong")
-            }
-        }
-        else{
-            res.json("not exist")
+        if (user) {
+            const passwordMatch = user.password === password;
+            res.json(passwordMatch ? "exist" : "wrong");
+        } else {
+            res.status(404).json("not exist");
         }
     } catch (e) {
-        res.json("not exist")
+        res.status(500).json("error");
     }
-})
+});
 
-app.post('/signup',async(req,res)=>{
-
-    const{email,password} = req.body
-
-    const data = {
-        email:email, 
-        password:password,
-    }
+app.post('/signup', async (req, res) => {
+    const { email, password } = req.body;
 
     try {
-        const check = await collection.findOne({email:email})
+        const userExists = await Collection.findOne({ email });
 
-        if(check){
-            res.json(req.body)
+        if (userExists) {
+            res.status(409).json("User already exists");
+        } else {
+            await Collection.insertMany([{ email, password }]);
+            res.status(201).json("User registered");
         }
-        else{
-            await collection.insertMany([data]);
-            res.json("not exist")
-        }
-    } catch (e){
-        console.log(e);
+    } catch (e) {
+        res.status(500).json("error");
     }
-})
+});
 
-app.listen(8000,()=>{
-    console.log("port connected")
-})
+app.listen(8000, () => {
+    console.log("Server running on port 8000");
+});

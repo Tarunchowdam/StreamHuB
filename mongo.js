@@ -1,26 +1,68 @@
+// require('dotenv').config();
 
-const mongoose = require("mongoose")
+// const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/youtube')
-.then(()=>{
-    console.log("Database connected")
+// // Connect to MongoDB
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+// .then(() => {
+//     console.log('Database Connected');
+// })
+// .catch((error) => {
+//     console.error('Database connection error:', error);
+// });
+
+// // Define schema
+// const mongoSchema = new mongoose.Schema({
+//     email: {
+//         type: String,
+//         required: true,
+//         unique: true, // Ensure email is unique
+//     },
+//     password: {
+//         type: String,
+//         required: true,
+//     }
+// });
+
+// // Create model
+// const Collection = mongoose.model('User', mongoSchema);
+
+// module.exports = Collection;
+
+
+require('dotenv').config(); // Load environment variables
+
+const mongoose = require('mongoose');
+
+// Connect to MongoDB Atlas
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-.catch((err)=>{
-    console.log("Failed"+err)
+.then(() => {
+    console.log('Database Connected');
 })
+.catch((error) => {
+    console.error('Database connection error:', error);
+});
 
-const newSchema = new mongoose.Schema({
-    email:{
-        type:String,
-        required:true
+// Define schema
+const mongoSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true,
     }
-    
-})
+});
 
-const collection = mongoose.model("collection",newSchema)
+// Create model
+const Collection = mongoose.model('User', mongoSchema);
 
-module.exports=collection;
+module.exports = Collection;
